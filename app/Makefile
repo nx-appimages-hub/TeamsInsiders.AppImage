@@ -51,9 +51,9 @@ all: clean init
 init:
 	mkdir --parents $(PWD)/bin
 
-	# wget https://apprepo.de/appimage/download/apprepo \
-	# 	--output-document=$(PWD)/bin/Apprepo.AppImage
-	# chmod +x $(PWD)/bin/Apprepo.AppImage
+	wget https://apprepo.de/appimage/download/apprepo \
+		--output-document=$(PWD)/bin/Apprepo.AppImage
+	chmod +x $(PWD)/bin/Apprepo.AppImage
 
 	wget https://github.com/AppImage/AppImageKit/releases/download/13/appimagetool-x86_64.AppImage \
 		--output-document=$(PWD)/bin/appimagetool.AppImage
@@ -61,5 +61,5 @@ init:
 
 clean:
 	rm -rf $(PWD)/*.AppImage
-	# rm -rf $(PWD)/bin/*
+	rm -rf $(PWD)/bin/*
 	rm -rf $(PWD)/build
