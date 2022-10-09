@@ -13,10 +13,16 @@ FROM ubuntu:20.04
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-RUN apt-get update
+RUN apt-get update --fix-missing
 RUN apt-get -y install apt-utils
 RUN apt-get -y upgrade
 
 RUN apt-get install -y kmod make gcc wget gpg curl
 RUN apt-get install -y rpm2cpio cpio
 RUN apt-get install -y fuse file
+RUN apt-get update  --fix-missing
+
+RUN apt-get install -y software-properties-common
+RUN wget -q -O "-" https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
+RUN add-apt-repository "deb https://packages.microsoft.com/repos/ms-teams stable main" 
+RUN apt-get update -y
