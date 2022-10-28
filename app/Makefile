@@ -22,15 +22,14 @@ all: clean init
 			libreadline8 at-spi2-core libpango-1.0-0 libgtk-3-0 \
 			libwayland-cursor0 libselinux1 
 
-	echo ''                                                     >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo ''                                                     >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo 'exec $${APPDIR}/bin/teams-insiders $${@}'             >> $(PWD)/build/Boilerplate.AppDir/AppRun
-	
-	cp --force --recursive  /usr/lib/x86_64-linux-gnu/libstdc++.* $(PWD)/build/Boilerplate.AppDir/lib
-
-	rm --force $(PWD)/build/Boilerplate.AppDir/*.desktop   || true
-	rm --force $(PWD)/build/Boilerplate.AppDir/*.svg       || true
-	rm --force $(PWD)/build/Boilerplate.AppDir/*.png       || true
+	echo ''                                                           >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo ''                                                           >> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo 'exec $${APPDIR}/share/teams-insiders/teams-insiders $${@}'  >> $(PWD)/build/Boilerplate.AppDir/AppRun
+		
+	rm --force $(PWD)/build/Boilerplate.AppDir/*.desktop              || true
+	rm --force $(PWD)/build/Boilerplate.AppDir/*.svg                  || true
+	rm --force $(PWD)/build/Boilerplate.AppDir/*.png                  || true
+	rm --force $(PWD)/build/Boilerplate.AppDir/lib64/libstdc++.so.6*  || true
 
 	cp --force $(PWD)/AppDir/*.png        $(PWD)/build/Boilerplate.AppDir/ || true
 	cp --force $(PWD)/AppDir/*.desktop    $(PWD)/build/Boilerplate.AppDir/ || true
